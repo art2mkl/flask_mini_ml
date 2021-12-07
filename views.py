@@ -1,7 +1,8 @@
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for
 from app import app
 from ml.wine import Wine
+import pandas as pd
 
 @app.route('/')
 @app.route('/home/')
@@ -14,6 +15,23 @@ def test():
 
 @app.route('/wine/')
 def wine():
-    vin = Wine()
+    
+    wine = Wine()
+    wine_df = wine.df
 
-    return render_template('index.html', titre="Wine")
+
+    
+    
+
+    #return wine.names
+    return wine_df.columns
+
+    #return {'a' : 1, 'b' : 2, 'c' : 4}
+    
+    #render_template('index.html', titre="Wine")
+
+
+@app.route('/wine2/')
+def wine2():
+    
+    return render_template('wine2.html', info = wine())

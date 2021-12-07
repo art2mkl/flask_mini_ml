@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url_for('index') }}">Wine_Bot</a>
+        <a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.svg') }}" class="logo" alt="">Wine_Bot</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link {% if titre == 'Home' %}active{% endif %}" aria-current="page"
                         href="{{ url_for('index') }}">Home</a>
@@ -21,3 +21,4 @@
         </div>
     </div>
 </nav>
+
