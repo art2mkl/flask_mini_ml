@@ -1,0 +1,45 @@
+
+from flask import Flask, render_template, request, url_for, redirect
+from app import app
+from ml.wine import Wine
+import pandas as pd
+import requests
+
+@app.route('/')
+@app.route('/home/')
+def index():
+    return render_template('index.html', titre="Home")
+
+@app.route('/test/')
+def test():
+    return render_template('index.html', titre="Test")
+
+@app.route('/wine/')
+def wine(id = None, di = None):
+    if request.args.get('id'):
+        id = request.args.get('id')
+    if request.args.get('di'):
+        di = request.args.get('di')
+
+    wine = Wine()
+    wine_df = wine.df
+
+
+    
+    
+
+    #return wine.names
+    #return wine_df
+
+    return f"{id} and {di}"
+    
+    #render_template('index.html', titre="Wine")
+
+
+@app.route('/wine2/')
+def wine2():
+    
+    #info = requests.get(url_for(('wine'), id=3, di=2, _external=True)).text
+    info = url_for(('wine'), id=3, di=2, _external=True)
+    print(info.values)
+    return render_template('wine2.html', info = info.context)
