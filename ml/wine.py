@@ -14,4 +14,10 @@ class Wine :
         
         self.df = pd.DataFrame(data= np.c_[wines['data'], wines['target']],
                      columns= wines['feature_names'] + ['target'])
+
+    def widget_range_settings(self):
+        return {f: [self.df[f].min(), self.df[f].mean(), self.df[f].max()] for f in self.df.columns}
+
+        
+
     
