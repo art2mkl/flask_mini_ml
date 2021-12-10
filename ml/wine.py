@@ -15,12 +15,12 @@ from joblib import dump, load
 
 class Wine :
     def __init__(self):
-        wines = load_wine()
+        # wines = load_wine()
         
-        self.df = pd.DataFrame(data= np.c_[wines['data'], wines['target']],
-                     columns= wines['feature_names'] + ['target'])
-        self.X = self.df.drop('target', axis = 1)
-        self.parameters = [[self.X[i].min(), self.X[i].max(), i] for i in self.X.columns]
+        # self.df = pd.DataFrame(data= np.c_[wines['data'], wines['target']],
+        #              columns= wines['feature_names'] + ['target'])
+        # self.X = self.df.drop('target', axis = 1)
+        # self.parameters = [[self.X[i].min(), self.X[i].max(), i] for i in self.X.columns]
         self.fit_model = self.load_model('wine_fit')
 
     def load_model(self, name):
