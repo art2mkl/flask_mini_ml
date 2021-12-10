@@ -9,8 +9,9 @@
 
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-6">
             <h2 class="text-warning p-3 m-1">'Parameters'</h2>
+            
             <form action="{{ url_for('index') }}" method="post">
                 <div class="row">
                     <div class="col-md-6">
@@ -117,9 +118,9 @@
             </form>
         </div>
 
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
+        <div class="col-6 d-flex justify-content-center align-items-center">
             {% if predict == 100 %}
-            <h2 class="text-warning">Fait une prédiction ! </h2>
+            <h2 class="text-warning">Fait une prédiction&nbsp;! </h2>
 
             {% else %}
 

@@ -64,9 +64,9 @@ def predict():
     od280_od315_of_diluted_wines = request.args.get("od280_od315_of_diluted_wines")
     proline = request.args.get("proline")
 
-    print(proline)
 
     if alcohol != None and malic_acid != None and ash != None and alcalinity_of_ash != None and magnesium != None and total_phenols != None and flavanoids != None and nonflavanoid_phenols != None and proanthocyanins != None and color_intensity != None and hue != None and od280_od315_of_diluted_wines != None and proline != None:
+        
         wine = Wine()
 
         to_predict = pd.DataFrame([[alcohol, malic_acid, ash, alcalinity_of_ash, magnesium,
@@ -74,7 +74,7 @@ def predict():
         proanthocyanins, color_intensity, hue,
         od280_od315_of_diluted_wines, proline ]])
 
-        prediction = str(wine.predict(to_predict)).replace(".","").replace("[","").replace("]","")
+        prediction = str(wine.predict(to_predict)[0])
 
     else:
         prediction = "Il manque des paramètres"
